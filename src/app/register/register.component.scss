@@ -1,0 +1,78 @@
+body {
+  background-color: rgb(26, 200, 243);
+}
+
+mat-card-content.input-text {
+  margin: auto;
+  padding: 3px;
+}
+
+mat-form-field {
+  max-width: 100%;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+mat-card-title.title  {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 25px;
+  border-bottom: #3621f3 2px solid;
+  
+}
+.text-title{
+    margin-bottom:50px;
+    
+}
+
+mat-card-footer {
+  border-top: #3621f3 2px solid;
+  padding-top: 20px;
+  margin-bottom: auto;
+  text-align: center;
+  font-size: 100%;
+}
+
+mat-card.container{
+  max-width: 100%;
+  width: 32%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 50px;
+}
+
+
+mat-card img {
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+  align-items: center;
+}
+
+.btn {
+  max-width: 100%;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.color-icon {
+  color: rgb(105, 11, 11);
+}
+
+.titledep {
+  text-align: left;
+  font-size: 20px;
+}
+
+.example-form {
+
+    
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }

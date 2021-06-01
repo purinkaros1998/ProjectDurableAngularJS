@@ -1,0 +1,141 @@
+<div class="card">
+    <div class="card-header">
+        รายชื่อสมาชิกทั้งหมด
+    </div>
+    <div class="card-body" style="overflow-y: auto; overflow-x: auto;">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="users-list">
+                <thead>
+                    <tr class="text-nowrap font-size">
+                        <th scope="col">ลำดับ</th>
+                        <th scope="col">ชื่อผู้ใช้งาน</th>
+                        <th scope="col">รหัสผ่าน</th>
+                        <th scope="col">อีเมล</th>
+                        <th scope="col">ชื่อจริง</th>
+                        <th scope="col">นามสกุล</th>
+                        <th scope="col">กลุ่มงาน</th>
+                        <th scope="col">จัดการสมาชิก</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="text-nowrap"
+                        *ngFor="let items of users| paginate: { itemsPerPage: 10, currentPage: currentPage };let i = index">
+                        <th>{{ (10*currentPage)-10+(i+1) }}</th>
+                        <td style="vertical-align: middle">{{ items.name }}</td>
+                        <td style="vertical-align: middle">*****************</td>
+                        <td style="vertical-align: middle">{{ items.email }}</td>
+                        <td style="vertical-align: middle">{{ items.firstname }}</td>
+                        <td style="vertical-align: middle">{{ items.lastname }}</td>
+                        <td style="vertical-align: middle">{{ items.dep_name }}</td>
+                        <td style="vertical-align: middle">
+                            <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#EdituserModel"
+                                (click)="geteditusers(items.id)">
+                                <i class="fas fa-user-edit"></i>แก้ไข</button>&nbsp;
+                            <!-- Modal -->
+                            <div class="modal fade" id="EdituserModel" tabindex="-1" role="dialog"
+                                aria-labelledby="EdituserModelLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="EdituserModelLabel">แก้ไขสมาชิก</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <mat-card-content>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>ชื่อผู้ใช้งาน</mat-label>
+                                                            <input matInput="text" value="{{editusers.name}}"
+                                                                [(ngModel)]="Updateuser.name">
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>รหัสผ่าน</mat-label>
+                                                            <input matInput type="password"
+                                                                [(ngModel)]="Updateuser.password">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                            </mat-card-content>
+
+                                            <mat-card-content>
+                                                <div class="row">
+                                                    <div class="col-lg-12 ">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>อีเมล</mat-label>
+                                                            <input matInput="text" value="{{editusers.email}}"
+                                                                [(ngModel)]="Updateuser.email">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                            </mat-card-content>
+                                            <mat-card-content>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>ชื่อจริง</mat-label>
+                                                            <input matInput="text" value="{{editusers.firstname}}"
+                                                                [(ngModel)]="Updateuser.firstname">
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>นามสกุล</mat-label>
+                                                            <input matInput="text" value="{{editusers.lastname}}"
+                                                                [(ngModel)]="Updateuser.lastname">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                            </mat-card-content>
+
+                                            <mat-card-content>
+                                                <div class="row">
+                                                    <div class="col-lg-12 ">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>กลุ่มงาน</mat-label>
+                                                            <input [hidden]="!ShowDepartment" matInput="text"
+                                                                value="{{editusers.dep_name}}">
+                                                            <mat-select matNavitiveControl name="item"
+                                                                placeholder="{{editusers.dep_name}}"
+                                                                [(ngModel)]="Updateuser.dep_id">
+                                                                <mat-option *ngFor="let item of departments"
+                                                                    [value]="item.dep_id">
+                                                                    {{item.dep_name}}
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                            </mat-card-content>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-success" (click)="updateUsers()"
+                                                data-dismiss="modal">
+                                                <i class="fas fa-save"></i> บันทึก</button>
+                                            <button type="button" class="btn btn-danger"
+                                                data-dismiss="modal">ยกเลิก</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-danger btn-sm" (click)="deleteUsers(items.id)">
+                                <i class="far fa-trash-alt"></i> ลบ
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="card-footer text-muted">
+        <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+    </div>
+
+</div>

@@ -1,0 +1,60 @@
+.modal-content{
+  width: 100%;
+  height: auto;
+}
+
+.mat-select-placeholder{
+  color: #000;
+}
+
+
+mat-form-field {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+
+th {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  width: 100px;
+  text-align: center;
+  margin: auto;
+}
+tr td {
+  text-align: left;
+  font-size: 12px;
+  padding: 10px;
+  width: 450px;
+  color: rgb(0, 0, 0);
+}
+th.width-text {
+  width: 1050px;
+}
+
+input {
+  color: rgb(0, 0, 0);
+}
+
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,102 @@
+<mat-card class="container">
+    <mat-card-title class="title">
+        <span class="text-title"><b>สมัครสมาชิก</b></span>
+    </mat-card-title>
+
+    <mat-card-content class="input-text">
+        <div class="row">
+            <div class="col-lg-6">
+                <mat-form-field>
+                    <mat-label>ชื่อผู้ใช้</mat-label>
+                    <input [(ngModel)]="register.name" matInput="username" required>
+                    <mat-icon matSuffix color="primary">account_box</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div class="col-lg-6">
+                <mat-form-field>
+                    <mat-label>รหัสผ่าน</mat-label>
+                    <input [(ngModel)]="register.password" type="password" matInput="password" required>
+                    <mat-icon matSuffix color="primary">lock</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+
+    </mat-card-content>
+
+
+    <mat-card-content class="input-text">
+        <div class="row">
+            <div class="col-lg-12">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>อีเมล</mat-label>
+                        <input [(ngModel)]="register.email" type="email" matInput [formControl]="emailFormControl"
+                            placeholder="Ex. pat@example.com">
+                            <mat-icon matSuffix color="primary">email</mat-icon>
+                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            ไม่ถูกต้อง!!
+                        </mat-error>
+                        <mat-error *ngIf="emailFormControl.hasError('required')">
+                            กรุณาป้อนอีเมลของคุณ
+                        </mat-error>
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
+    </mat-card-content>
+
+    <mat-card-content class="input-text">
+        <div class="row">
+            <div class="col-lg-6">
+                <mat-form-field>
+                    <mat-label>ชื่อจริง</mat-label>
+                    <input [(ngModel)]="register.firstname" type="firstname" matInput="firstname">
+                    <mat-icon matSuffix color="primary">account_box</mat-icon>
+                </mat-form-field>
+            </div>
+
+
+            <div class="col-lg-6">
+                <mat-form-field>
+                    <mat-label>นามสกุล</mat-label>
+                    <input [(ngModel)]="register.lastname" type="lastname" matInput="lastname">
+                    <mat-icon matSuffix color="primary">account_box</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-card-content>
+
+    <mat-card-content class="input-text">
+        <div class="titledep">
+            <b>กลุ่มงาน</b>
+        </div>
+
+        <mat-form-field appearance="fill">
+            <mat-label>กรุณาเลือกกลุ่มงาน</mat-label>
+            <mat-select matNavitiveControl [(ngModel)]="register.dep_id" name="item">
+                <mat-option *ngFor="let item of departments" [value]="item.dep_id">
+                    {{item.dep_name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-content class="btn">
+        <button class='form-control' mat-flat-button color="primary" (click)="saveregister()">
+            สมัครสมาชิก
+        </button>
+        <br>
+        <br>
+        <button class='form-control' mat-button color="primary" [routerLink]="['/login']"
+            routerLinkActive="router-link-active" >
+            <mat-icon color="primary">swap_horiz</mat-icon>
+            ไปยังหน้าล็อคอิน
+        </button>
+    </mat-card-content>
+
+    <mat-card-footer>
+        สำนักงานสาธารณสุขจังหวัดนครราชสีมา
+    </mat-card-footer>
+
+</mat-card>

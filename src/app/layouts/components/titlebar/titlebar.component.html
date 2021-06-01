@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand navbar-light bg-white topbar  static-top shadow">
+
+    <img class="img-profile rounded-circle" src="../../assets/img/Public_Health_of_Thailand.png"
+        style="width: 50px; font-size:20px">
+    <span class="navbar-brand ml-2" >Korat Health Durable</span>
+    <!-- <span class="mr-2 d-none d-lg-inline text-gray-600 small " class="name-dep">Korat Health Durable</span> -->
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <div class="fa fa-sticky-note mr-3" style="color:rgb(247, 137, 11)"></div>
+            <span span class="mr-2 d-none d-lg-inline text-gray-600 small " class="name-dep">
+                {{ departments }}</span> &nbsp; &nbsp; &nbsp; 
+            <div class="fa fa-user mr-3" style="color:rgb(12, 15, 233)"></div>
+            <span class=" d-none d-lg-inline text-gray-600 small" class="name-dep">
+                {{ fullname }}
+            </span>
+
+
+        </form>
+        &nbsp; &nbsp;
+        <button mat-raised-button color="primary" (click)="logout()">
+            ออกจากระบบ
+        </button>
+
+    </div>
+
+
+
+
+
+
+</nav>

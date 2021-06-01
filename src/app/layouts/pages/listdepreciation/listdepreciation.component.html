@@ -1,0 +1,123 @@
+<!-- <div class="row ">
+    <div class="col-lg-3">
+        <mat-form-field appearance="outline">
+            <mat-label>ปี</mat-label>
+            <mat-select matNavitiveControl name="item">
+                <mat-option *ngFor="let item of Year" [value]="item">
+                    {{ item }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>ปี</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let year of Year">{{ year }}</mat-option>
+                {{year}}
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-lg-3">
+        <mat-form-field appearance="outline">
+            <mat-label>เดือน</mat-label>
+            <mat-select matNavitiveControl name="item">
+                <mat-option *ngFor="let item of Month" [value]="item">
+                    {{ item }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div> -->
+<div class="card">
+    <div class="card-header">
+        <span>รายงานค่าเสื่อม</span>
+        <div class="row">
+            <div class="col-lg-2">
+                <mat-form-field appearance="outline">
+                    <mat-label>ปี</mat-label>
+                    <mat-select matNavitiveControl name="item" [(ngModel)]="reqYM.year">
+                        <mat-option *ngFor="let item of Year" [value]="item.value">
+                            {{ item.year }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-2">
+                <mat-form-field appearance="outline">
+                    <mat-label>เดือน</mat-label>
+                    <mat-select matNavitiveControl name="item" [(ngModel)]="reqYM.month">
+                        <mat-option *ngFor="let item of Month" [value]="item.value">
+                            {{ item.month }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-2">
+                <mat-form-field appearance="outline">
+                    <mat-label>ประเภทครุภัณฑ์</mat-label>
+                    <mat-select matNavitiveControl name="item" [(ngModel)]="reqYM.category_id">
+                        <mat-option *ngFor="let item of getCategory" [value]="item.category_id">
+                            {{ item.category_name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-2">
+                <button type="button" class="btn btn-primary btn-left ml-3"
+                    (click)="checkDatadepreciation()">ตกลง</button>
+                    
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="card-body" style="overflow-y: auto; overflow-x: auto;">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="users-list">
+                <thead>
+                    <tr class="text-nowrap">
+
+                        <th scope="col">ลำดับ</th>
+                        <th scope="col">วันที่สั่งซื้อ</th>
+                        <th scope="col">รหัสครุภัณฑ์</th>
+                        <th scope="col">ยี่ห้อ ชนิด แบบ ขนาด ลักษณะ</th>
+                        <th scope="col">ราคา</th>
+                        <th scope="col">อายุการใช้งาน(ปี)</th>
+                        <th scope="col">ค่าเสื่อมราคาที่ยกมา</th>
+                        <th scope="col">ค่าเสื่อมประจำปี</th>
+                        <th scope="col">ค่าเสื่อมประจำเดือน</th>
+                        <th scope="col">อายุค่าเสื่อม(ปี)</th>
+                        <th scope="col">ค่าเสื่อมราคาสะสม</th>
+                        <th scope="col">มูลค่าสุทธิ</th>
+                        <th scope="col">แหล่งของงบประมาณ</th>
+                        <th scope="col">กลุ่มงาน</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-nowrap"
+                        *ngFor="let items of Showdepreciation | paginate: { itemsPerPage: 10, currentPage: currentPage }; let i = index">
+                        <th>{{ (10*currentPage)-10+ (i+1) }}</th>
+                        <td>{{ items.buy_date | date: 'dd/MM/yyyy' }}</td>
+                        <td>{{ items.data_code }}</td>
+                        <td>{{ items.data_name }}</td>
+                        <td>{{ items.data_price | number }}</td>
+                        <td class="style">{{ items.exp }}</td>
+                        <td class="style">{{ items.oldlater_depreciation | number }}</td>
+                        <td class="style">{{ items.priceyear_depreciation | number }}</td>
+                        <td class="style">{{ items.pricemonth_depreciation | number }}</td>
+                        <td class="style">{{ items.old_depreciation | number }}</td>
+                        <td class="style">{{ items.pricetotal_depreciation | number}}</td>
+                        <td class="style">{{ items.total_value | number }}</td>
+                        <td>{{ items.budget_name }}</td>
+                        <td>{{ items.dep_name }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="card-footer text-muted">
+        <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+    </div>
+</div>

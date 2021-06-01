@@ -1,0 +1,44 @@
+<div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+        <div class="custom-menu">
+            <button type="button" id="sidebarCollapse" onclick="toggleSidebar();" class="btn btn-primary">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu</span>
+            </button>
+        </div>
+        <ul class="list-unstyled components mb-2 ">
+            <li class="active">
+                <a [routerLink]="['/layouts/listdurable']" routerLinkActive="router-link-active">
+                    <i class="fa fa-list-ul mr-3"></i>
+                    <span>จัดการครุภัณฑ์</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/layouts/listmember']" routerLinkActive="router-link-active">
+                    <i class="fa fa-user mr-3 text-sidebar"></i>
+                    <span class="text-sidebar ml-1">จัดการสมาชิก</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/layouts/listdepreciation']" routerLinkActive="router-link-active">
+                    <i class="fa fa-sticky-note mr-3 text-sidebar"></i>
+                    <span class="text-sidebar ml-1"></span> รายงาน </a>
+            </li>
+            <li>
+                <a href="#"><span class="fa fa-sticky-note mr-3"></span> Subcription</a>
+            </li>
+            <li>
+                <a href="#"><span class="fa fa-paper-plane mr-3"></span> Settings</a>
+            </li>
+            <li>
+                <a href="#"><span class="fa fa-paper-plane mr-3"></span> Information</a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+    </div>
+</div>

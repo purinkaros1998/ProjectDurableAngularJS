@@ -1,0 +1,119 @@
+.modal-content{
+  width: 100%;
+  height: auto;
+}
+.font-size {
+  font-size: 14px;
+}
+
+
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+  color: #000;
+}
+
+.mat-select-placeholder{
+  color: #000;
+}
+
+.modal-header{
+ font-size: 20px;
+ color: #000;
+}
+
+.style-section {
+  margin-top: 10px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.style-margin {
+  margin: 9px 20px 0 20px;
+}
+
+.example-h2 {
+  margin: 10px;
+}
+
+
+
+// mat-card.container {
+//   max-width: 100%;
+//   width: 25%;
+//   margin: auto;
+//   margin-top: 20px;
+//   padding: 40px;
+// }
+
+mat-card-title.title {
+  text-align: center;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+}
+
+mat-label{
+  font-size:14px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+mat-card-content.btn {
+  text-align: center;
+}
+
+mat-card-content.btn-footer {
+  text-align: center;
+}
+
+th {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  width: 100px;
+  text-align: center;
+  margin: auto;
+}
+tr td {
+  vertical-align: middle;
+  text-align: left;
+  font-size: 12px;
+  padding: 10px;
+  width: 450px;
+  color: rgb(0, 0, 0);
+}
+th.width-text {
+  width: 1050px;
+}
+.modal{
+  width:100%;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+// ***********************************
